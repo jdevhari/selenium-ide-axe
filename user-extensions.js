@@ -8198,7 +8198,7 @@ maxstatements: false, maxcomplexity: false */
 var report = {}
     nextId = 1;
 
-Selenium.prototype.doCheckA11yAndStore = function(locator, value) {
+doCheckA11yAndStore = function(locator, value) {
   var element = this.page().findElement(locator),
       label = value || nextId,
       url = this.page().currentWindow.location.href;
@@ -8210,12 +8210,12 @@ Selenium.prototype.doCheckA11yAndStore = function(locator, value) {
   nextId++;
 };
 
-Selenium.prototype.doVerifyA11yReport = function(locator, value) {
+doVerifyA11yReport = function(locator, value) {
     var label = value || nextId;
     Assert.equals(0, report[value].violations.length, JSON.stringify(report[label].violations));
 };
 
-Selenium.prototype.doA11yReportDump = function(locator, value) {
+doA11yReportDump = function(locator, value) {
     var label = value || nextId,
         buff = [`
           <!DOCTYPE html>
